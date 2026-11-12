@@ -1,0 +1,92 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>페이백 지급 일정 | COGU 코구코인</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css">
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a class="logo" href="/" aria-label="COGU 홈">
+        <span class="logo-mark">구</span>
+        <span class="logo-word">COGU<small>cogucoin.com</small></span>
+      </a>
+      <nav class="menu" aria-label="주요 메뉴">
+        <a href="/#calc">수수료 계산기</a>
+        <a href="/#exchanges">거래소 혜택</a>
+        <a href="/#events">이벤트·대회</a>
+        <a href="/payback">페이백 일정</a>
+        <a href="/#referral">추천인 변경</a>
+        <a href="/#faq">자주 묻는 질문</a>
+      </nav>
+      <div class="nav-right">
+        <button class="icon-btn" id="themeBtn" aria-label="화면 테마 바꾸기">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn-primary" href="/#exchanges">페이백 받고 가입하기</a>
+        <button class="icon-btn" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="모바일 메뉴">
+      <a href="/#calc">수수료 계산기</a><a href="/#exchanges">거래소 혜택</a><a href="/#events">이벤트·대회</a>
+      <a href="/payback">페이백 일정</a><a href="/#referral">추천인 변경</a><a href="/#faq">자주 묻는 질문</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="sec">
+    <div class="wrap">
+      <div class="panel" id="payback">
+        <div class="eyebrow">PAYBACK SCHEDULE</div>
+        <h2 style="margin-top:8px">페이백 지급 시간</h2>
+        <p style="color:var(--muted);margin:6px 0 0;font-size:14px">거래 후 아래 주기에 맞춰 거래소 지갑으로 자동 입금됩니다.</p>
+        <table class="sched"><thead><tr><th>거래소</th><th>지급 일정</th><th>상태</th></tr></thead><tbody id="schedRows"></tbody></table>
+        <p class="warn">거래소 점검이나 정책 변경으로 지급이 늦어질 수 있습니다. 24시간 이상 지연되면 상담 채널로 UID와 함께 문의해 주세요.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="/"><span class="logo-mark" style="width:28px;height:28px;font-size:15px">구</span><span class="logo-word" style="font-size:20px">COGU</span></a>
+        <p class="risk">가상자산 거래는 원금 손실 위험이 큽니다. 레버리지 거래는 특히 신중하게 결정하시고, 본인 명의 계정만 사용해 주세요.</p>
+        <p>© 2026 COGU · cogucoin.com</p>
+      </div>
+      <nav aria-label="하단 메뉴">
+        <a href="/#exchanges">거래소 혜택</a><a href="/#events">이벤트</a><a href="/payback">페이백 일정</a><a href="/#faq">FAQ</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://t.me/cogucoin" target="_blank" rel="noopener">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 3.6 2.9 10.8c-1 .4-1 1.6.1 1.9l4.7 1.5 1.8 5.6c.3.8 1.3 1 1.9.4l2.6-2.5 4.9 3.6c.7.5 1.6.1 1.8-.7l3.2-15.1c.2-1-.7-1.8-1.7-1.4zM9.7 14.3l8.6-7.6-6.9 8.7-.3 3.3-1.4-4.4z"/></svg>
+  상담하기
+</a>
+<div class="toast" id="toast" hidden></div>
+
+<script src="/data.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const mono = (e, cls="mono") => `<span class="${cls}" style="background:${e.color};color:${e.fg}">${e.name.slice(0,2).toUpperCase()}</span>`;
+$("#schedRows").innerHTML = EXCHANGES.map(e=>`<tr><td><span class="ex">${mono(e)}<span><b>${e.ko}</b><small>${e.name}</small></span></span></td><td><div class="when">${e.schedule}</div>${e.scheduleNote?`<div class="note">${e.scheduleNote}</div>`:""}</td><td><span class="pill">정규 일정</span></td></tr>`).join("");
+document.querySelectorAll("#schedRows .mono").forEach(m=>{m.style.width="28px";m.style.height="28px";m.style.fontSize="10px";m.style.borderRadius="8px"});
+$("#themeBtn").addEventListener("click", () => {
+  const root = document.documentElement;
+  const dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+});
+$("#menuBtn").addEventListener("click", () => {
+  const m = $("#mobileMenu"), open = !m.classList.contains("open");
+  m.classList.toggle("open", open); $("#menuBtn").setAttribute("aria-expanded", open);
+});
+</script>
+</body></html>
