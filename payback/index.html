@@ -16,10 +16,10 @@
       <nav class="menu" aria-label="주요 메뉴">
         <a href="/#calc">수수료 계산기</a>
         <a href="/#exchanges">거래소 혜택</a>
-        <a href="/#events">이벤트·대회</a>
+        <a href="/event">이벤트·대회</a>
         <a href="/payback">페이백 일정</a>
-        <a href="/#referral">추천인 변경</a>
-        <a href="/#faq">자주 묻는 질문</a>
+        <a href="/referral-change">추천인 변경</a>
+        <a href="/support">자주 묻는 질문</a>
       </nav>
       <div class="nav-right">
         <button class="icon-btn" id="themeBtn" aria-label="화면 테마 바꾸기">
@@ -32,8 +32,8 @@
       </div>
     </div>
     <nav class="mobile-menu" id="mobileMenu" aria-label="모바일 메뉴">
-      <a href="/#calc">수수료 계산기</a><a href="/#exchanges">거래소 혜택</a><a href="/#events">이벤트·대회</a>
-      <a href="/payback">페이백 일정</a><a href="/#referral">추천인 변경</a><a href="/#faq">자주 묻는 질문</a>
+      <a href="/#calc">수수료 계산기</a><a href="/#exchanges">거래소 혜택</a><a href="/event">이벤트·대회</a>
+      <a href="/payback">페이백 일정</a><a href="/referral-change">추천인 변경</a><a href="/support">자주 묻는 질문</a>
     </nav>
   </div>
 </header>
@@ -61,7 +61,7 @@
         <p>© 2026 COGU · cogucoin.com</p>
       </div>
       <nav aria-label="하단 메뉴">
-        <a href="/#exchanges">거래소 혜택</a><a href="/#events">이벤트</a><a href="/payback">페이백 일정</a><a href="/#faq">FAQ</a>
+        <a href="/#exchanges">거래소 혜택</a><a href="/event">이벤트</a><a href="/payback">페이백 일정</a><a href="/support">FAQ</a>
       </nav>
     </div>
   </div>
@@ -74,19 +74,9 @@
 <div class="toast" id="toast" hidden></div>
 
 <script src="/data.js"></script>
+<script src="/common.js"></script>
 <script>
-const $ = s => document.querySelector(s);
-const mono = (e, cls="mono") => `<span class="${cls}" style="background:${e.color};color:${e.fg}">${e.name.slice(0,2).toUpperCase()}</span>`;
 $("#schedRows").innerHTML = EXCHANGES.map(e=>`<tr><td><span class="ex">${mono(e)}<span><b>${e.ko}</b><small>${e.name}</small></span></span></td><td><div class="when">${e.schedule}</div>${e.scheduleNote?`<div class="note">${e.scheduleNote}</div>`:""}</td><td><span class="pill">정규 일정</span></td></tr>`).join("");
 document.querySelectorAll("#schedRows .mono").forEach(m=>{m.style.width="28px";m.style.height="28px";m.style.fontSize="10px";m.style.borderRadius="8px"});
-$("#themeBtn").addEventListener("click", () => {
-  const root = document.documentElement;
-  const dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-});
-$("#menuBtn").addEventListener("click", () => {
-  const m = $("#mobileMenu"), open = !m.classList.contains("open");
-  m.classList.toggle("open", open); $("#menuBtn").setAttribute("aria-expanded", open);
-});
 </script>
 </body></html>

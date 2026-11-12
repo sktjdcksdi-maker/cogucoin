@@ -16,10 +16,10 @@
       <nav class="menu" aria-label="주요 메뉴">
         <a href="#calc">수수료 계산기</a>
         <a href="#exchanges">거래소 혜택</a>
-        <a href="#events">이벤트·대회</a>
+        <a href="/event">이벤트·대회</a>
         <a href="/payback">페이백 일정</a>
-        <a href="#referral">추천인 변경</a>
-        <a href="#faq">자주 묻는 질문</a>
+        <a href="/referral-change">추천인 변경</a>
+        <a href="/support">자주 묻는 질문</a>
       </nav>
       <div class="nav-right">
         <button class="icon-btn" id="themeBtn" aria-label="화면 테마 바꾸기">
@@ -32,8 +32,8 @@
       </div>
     </div>
     <nav class="mobile-menu" id="mobileMenu" aria-label="모바일 메뉴">
-      <a href="#calc">수수료 계산기</a><a href="#exchanges">거래소 혜택</a><a href="#events">이벤트·대회</a>
-      <a href="/payback">페이백 일정</a><a href="#referral">추천인 변경</a><a href="#faq">자주 묻는 질문</a>
+      <a href="#calc">수수료 계산기</a><a href="#exchanges">거래소 혜택</a><a href="/event">이벤트·대회</a>
+      <a href="/payback">페이백 일정</a><a href="/referral-change">추천인 변경</a><a href="/support">자주 묻는 질문</a>
     </nav>
   </div>
 </header>
@@ -49,7 +49,7 @@
         <p class="lead">COGU 추천 코드로 가입하면 거래할 때마다 낸 수수료의 일부가 자동으로 돌아옵니다. 한 달에 얼마나 아낄 수 있는지 옆에서 바로 계산해 보세요.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#exchanges">거래소 혜택 보기</a>
-          <a class="btn btn-ghost" href="#referral">이미 계정이 있어요</a>
+          <a class="btn btn-ghost" href="/referral-change">이미 계정이 있어요</a>
         </div>
         <div class="hero-facts">
           <div><b id="factMax">70%</b><span>최대 페이백</span></div>
@@ -94,7 +94,7 @@
           <div class="eyebrow">EXCHANGE BENEFITS</div>
           <h2 style="margin-top:8px">거래소별 혜택 한눈에 보기</h2>
         </div>
-        <a class="btn btn-ghost" href="#referral">기존 계정 추천인 변경 →</a>
+        <a class="btn btn-ghost" href="/referral-change">기존 계정 추천인 변경 →</a>
       </div>
       <div class="xtable" role="table" aria-label="거래소 혜택 비교">
         <div class="xrow head" role="row">
@@ -102,65 +102,9 @@
         </div>
         <div id="xrows"></div>
       </div>
-      <p class="table-note">선물(USDT-M) 기본 수수료 기준이며, 취소선은 원래 수수료, 굵은 숫자는 페이백을 반영한 실질 수수료입니다.</p>
     </div>
   </section>
 
-  <section class="sec" id="events" style="background:var(--sunk);border-block:1px solid var(--line)">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <div class="eyebrow">EVENTS &amp; COMPETITIONS</div>
-          <h2 style="margin-top:8px">이번 달 이벤트·대회</h2>
-          <p>신규 가입 혜택과 거래 대회를 거래소별로 모았습니다. 기간이 끝난 이벤트는 자동으로 빠집니다.</p>
-        </div>
-        <span class="chip">11월 업데이트</span>
-      </div>
-      <div class="filters" id="filters" role="group" aria-label="이벤트 필터"></div>
-      <div class="events" id="eventList"></div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <div class="panel" id="referral">
-        <div class="eyebrow">ALREADY HAVE AN ACCOUNT?</div>
-        <h2 style="margin-top:8px">기존 계정도 추천인 변경 가능</h2>
-        <p style="color:var(--muted);margin:6px 0 0;font-size:14px">거래소마다 방법이 다릅니다. 사용 중인 거래소를 골라 주세요.</p>
-        <div class="xtabs" id="refTabs" role="group" aria-label="거래소 선택"></div>
-        <ol class="steps" id="refSteps"></ol>
-        <p class="warn">추천인 변경 가능 여부와 조건은 거래소 정책에 따릅니다. 진행이 어렵다면 상담 채널로 문의해 주세요.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="faq" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head"><div><div class="eyebrow">FAQ</div><h2 style="margin-top:8px">자주 묻는 질문</h2></div></div>
-      <div class="faq">
-        <details open><summary>페이백이 뭔가요?</summary><p>거래소는 추천 코드로 가입한 회원의 수수료 일부를 추천인에게 지급합니다. COGU는 그 몫을 회원님께 다시 돌려드립니다. 거래 조건은 그대로이고 수수료 부담만 줄어듭니다.</p></details>
-        <details><summary>정말 안전한가요?</summary><p>모든 혜택은 각 거래소의 공식 파트너 프로그램을 통해 지급됩니다. COGU는 회원님의 계정, 비밀번호, 자산에 접근하지 않으며, 그런 정보를 요청하지도 않습니다.</p></details>
-        <details><summary>페이백은 어디로 들어오나요?</summary><p>가입한 거래소 계정의 지갑으로 직접 들어옵니다. 지급 주기는 <a href="/payback">페이백 일정</a> 페이지에서 확인해 주세요.</p></details>
-        <details><summary>이미 다른 추천인으로 가입했어요.</summary><p>일부 거래소는 고객센터를 통한 추천인 변경을 지원합니다. 추천인 변경 안내에서 거래소를 선택해 방법을 확인해 주세요.</p></details>
-        <details><summary>가입할 때 주의할 점이 있나요?</summary><p>반드시 본인 명의 정보로 가입하고 본인 인증(KYC)을 완료해 주세요. 타인 명의 계정은 페이백 지급이 제한되고 계정이 정지될 수 있습니다.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="contact">
-        <div>
-          <h2>궁금한 건 1:1로 물어보세요</h2>
-          <p>가입, 본인 인증, 페이백 확인까지 텔레그램으로 바로 도와드립니다.</p>
-        </div>
-        <div class="links">
-          <a href="https://t.me/cogucoin" target="_blank" rel="noopener">텔레그램 상담</a>
-          <a href="https://www.youtube.com/@cogucoin" target="_blank" rel="noopener">유튜브</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -172,7 +116,7 @@
         <p>© 2026 COGU · cogucoin.com</p>
       </div>
       <nav aria-label="하단 메뉴">
-        <a href="#exchanges">거래소 혜택</a><a href="#events">이벤트</a><a href="/payback">페이백 일정</a><a href="#faq">FAQ</a>
+        <a href="#exchanges">거래소 혜택</a><a href="/event">이벤트</a><a href="/payback">페이백 일정</a><a href="/support">FAQ</a>
       </nav>
     </div>
   </div>
@@ -185,16 +129,8 @@
 <div class="toast" id="toast" hidden></div>
 
 <script src="/data.js"></script>
+<script src="/common.js"></script>
 <script>
-
-
-const $ = s => document.querySelector(s);
-const byId = Object.fromEntries(EXCHANGES.map(e => [e.id, e]));
-const mono = (e, cls="mono") => `<span class="${cls}" style="background:${e.color};color:${e.fg}">${e.name.slice(0,2).toUpperCase()}</span>`;
-const fmtPct = n => (+n.toFixed(4)).toString() + "%";
-const fmtNum = n => Math.round(n).toLocaleString("ko-KR");
-function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,1800)}
-
 /* ticker */
 const tick = EXCHANGES.map(e=>`<span>${e.ko} 수수료 페이백<b>${e.payback}%</b></span>`).join("");
 $("#ticker").innerHTML = tick + tick;
@@ -210,7 +146,7 @@ $("#xrows").innerHTML = EXCHANGES.map(e => {
     <div class="fee mk" role="cell"><span class="lbl">지정가</span><s>${fmtPct(e.maker)}</s><b>${fmtPct(rm)}</b></div>
     <div class="fee tk" role="cell"><span class="lbl">시장가</span><s>${fmtPct(e.taker)}</s><b>${fmtPct(rt)}</b></div>
     <button class="code" role="cell" data-code="${e.code}" aria-label="${e.ko} 추천 코드 ${e.code} 복사">${e.code}<em>복사</em></button>
-    <div class="xact" role="cell"><a class="btn btn-primary" href="${e.link}" target="_blank" rel="noopener">가입하기</a><a class="btn btn-ghost" href="#referral" data-ref="${e.id}">가이드</a></div>
+    <div class="xact" role="cell"><a class="btn btn-primary" href="${e.link}" target="_blank" rel="noopener">가입하기</a><a class="btn btn-ghost" href="/referral-change?x=${e.id}">가이드</a></div>
   </div>`}).join("");
 
 document.addEventListener("click", ev => {
@@ -221,8 +157,6 @@ document.addEventListener("click", ev => {
     try { navigator.clipboard.writeText(code).then(done).catch(()=>{selectText(c);toast("코드를 길게 눌러 복사해 주세요")}); }
     catch(_) { selectText(c); toast("코드를 길게 눌러 복사해 주세요"); }
   }
-  const g = ev.target.closest("[data-ref]");
-  if (g) setRef(g.dataset.ref);
 });
 function selectText(el){const r=document.createRange();r.selectNodeContents(el.firstChild||el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
 
@@ -254,54 +188,6 @@ document.querySelectorAll(".presets button").forEach(b => b.addEventListener("cl
 }));
 renderCalc();
 
-/* events */
-const today = new Date(); today.setHours(0,0,0,0);
-const live = EVENTS.filter(ev => new Date(ev.end+"T23:59:59") >= today);
-let filt = "all";
-const used = [...new Set(live.map(e=>e.ex))];
-const fdefs = [["all","전체"],["comp","대회"],["new","신규 가입"],...used.map(id=>[id,byId[id].ko])];
-$("#filters").innerHTML = fdefs.map(([k,l])=>`<button data-f="${k}" aria-pressed="${k==="all"}">${l}</button>`).join("");
-$("#filters").addEventListener("click", e => {
-  const b = e.target.closest("button"); if(!b) return;
-  filt = b.dataset.f;
-  $("#filters").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", x===b));
-  renderEvents();
-});
-function dday(end){const d=Math.ceil((new Date(end+"T23:59:59")-new Date())/864e5);return d<=0?"오늘 마감":`D-${d}`}
-function renderEvents(){
-  const list = live.filter(ev => filt==="all" || ev.type===filt || ev.ex===filt);
-  $("#eventList").innerHTML = list.length ? list.map(ev => {
-    const e = byId[ev.ex];
-    return `<a class="ev" href="${ev.link}" target="_blank" rel="noopener">
-      <div class="ev-top"><span class="ev-ex">${mono(e)}${e.ko}</span><span class="ev-type ${ev.type}">${ev.type==="comp"?"거래 대회":"신규 가입"}</span></div>
-      <h3>${ev.title}</h3>
-      <div class="prize">${ev.prize}</div>
-      <dl>${ev.cond.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}<dt>기간</dt><dd class="num" style="font-size:12px">${ev.start.slice(5).replace("-",".")} – ${ev.end.slice(5).replace("-",".")}</dd></dl>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span class="go">자세히 보기 →</span><span class="dday">${dday(ev.end)}</span></div>
-    </a>`}).join("") : `<p style="color:var(--muted)">진행 중인 이벤트가 없습니다.</p>`;
-}
-renderEvents();
-
-/* referral change */
-$("#refTabs").innerHTML = EXCHANGES.map((e,i)=>`<button data-x="${e.id}" aria-pressed="${i===0}">${e.ko}</button>`).join("");
-function setRef(id){
-  $("#refTabs").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.x===id));
-  $("#refSteps").innerHTML = (REF_STEPS[id]||[]).map(([t,d])=>`<li><div><b>${t}</b><span>${d}</span></div></li>`).join("");
-}
-$("#refTabs").addEventListener("click", e => {const b=e.target.closest("button"); if(b) setRef(b.dataset.x)});
-setRef(EXCHANGES[0].id);
-
-/* theme + menu */
-$("#themeBtn").addEventListener("click", () => {
-  const root = document.documentElement;
-  const dark = root.dataset.theme ? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
-});
-$("#menuBtn").addEventListener("click", () => {
-  const m = $("#mobileMenu"), open = !m.classList.contains("open");
-  m.classList.toggle("open", open); $("#menuBtn").setAttribute("aria-expanded", open);
-});
-$("#mobileMenu").addEventListener("click", e => { if (e.target.tagName==="A") { $("#mobileMenu").classList.remove("open"); $("#menuBtn").setAttribute("aria-expanded","false"); } });
 </script>
 
 </body></html>
