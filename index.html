@@ -296,7 +296,6 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:13px}
         <div>
           <div class="eyebrow">EXCHANGE BENEFITS</div>
           <h2 style="margin-top:8px">거래소별 혜택 한눈에 보기</h2>
-          <p>추천 코드를 눌러 복사한 뒤, 가입 화면의 추천인(Referral) 칸에 붙여 넣으세요.</p>
         </div>
         <a class="btn btn-ghost" href="#referral">기존 계정 추천인 변경 →</a>
       </div>
@@ -400,12 +399,12 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:13px}
 /* ===== 여기만 고치면 사이트 내용이 바뀝니다 ===== */
 // code: 본인 추천 코드 / link: 본인 레퍼럴 가입 링크 / maker·taker: 기본 수수료(%) / payback: 페이백 비율(%)
 const EXCHANGES = [
-  {id:"gate",    name:"Gate",    ko:"게이트",   color:"#2354E6", fg:"#fff", payback:70, maker:0.02, taker:0.05,  code:"COGU",    link:"https://www.gate.com/", pick:true, schedule:"매일 오전"},
+  {id:"gate",    name:"Gate",    ko:"게이트",   color:"#2354E6", fg:"#fff", payback:50, maker:0.02, taker:0.05,  code:"cogugood",    link:"https://www.gate.com/", pick:true, schedule:"매일 오전"},
   {id:"toobit",  name:"Toobit",  ko:"투빗",     color:"#111827", fg:"#fff", payback:60, maker:0.02, taker:0.06,  code:"cogu",    link:"https://www.toobit.com/", schedule:"거래 후 약 1시간"},
-  {id:"bitget",  name:"Bitget",  ko:"비트겟",   color:"#00C7D4", fg:"#062a2c", payback:50, maker:0.02, taker:0.06, code:"COGU",   link:"https://www.bitget.com/", schedule:"다음 날 오후"},
+  {id:"bitget",  name:"Bitget",  ko:"비트겟",   color:"#00C7D4", fg:"#062a2c", payback:30, maker:0.02, taker:0.06, code:"good1004",   link:"https://www.bitget.com/", schedule:"다음 날 오후"},
   {id:"bybit",   name:"Bybit",   ko:"바이비트", color:"#17181E", fg:"#F7A600", payback:20, maker:0.02, taker:0.055, code:"122998", link:"https://www.bybit.com/invite?ref=122998", schedule:"매주 월요일"},
-  {id:"okx",     name:"OKX",     ko:"OKX",      color:"#000000", fg:"#fff", payback:20, maker:0.02, taker:0.05,  code:"COGU",    link:"https://www.okx.com/", schedule:"약 1시간 단위"},
-  {id:"binance", name:"Binance", ko:"바이낸스", color:"#F0B90B", fg:"#1E2026", payback:10, maker:0.02, taker:0.05, code:"COGU",   link:"https://www.binance.com/", schedule:"거래 후 약 1시간"}
+  {id:"okx",     name:"OKX",     ko:"OKX",      color:"#000000", fg:"#fff", payback:20, maker:0.02, taker:0.05,  code:"good12",    link:"https://www.okx.com/", schedule:"약 1시간 단위"},
+  {id:"binance", name:"Binance", ko:"바이낸스", color:"#F0B90B", fg:"#1E2026", payback:10, maker:0.02, taker:0.05, code:"cogu1004",   link:"https://www.binance.com/", schedule:"거래 후 약 1시간"}
 ];
 // type: "comp"(대회) 또는 "new"(신규 가입) / end 날짜가 지나면 자동으로 숨겨집니다
 const EVENTS = [
