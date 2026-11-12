@@ -169,8 +169,16 @@ input[type=range]{width:100%;margin-top:14px;accent-color:var(--accent)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0}
 .panel h2{font-size:26px}
 .sched{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
-.sched td{padding:11px 4px;border-top:1px solid var(--line)}
-.sched td:last-child{text-align:right}
+.sched th{padding:10px 4px;font-size:12px;font-weight:600;color:var(--muted);text-align:left}
+.sched th:last-child{text-align:right}
+.sched td{padding:16px 4px;border-top:1px solid var(--line);vertical-align:middle}
+.sched td:last-child{text-align:right;white-space:nowrap}
+.sched .ex{display:inline-flex;align-items:center;gap:12px}
+.sched .ex b{display:block;font-size:15px;white-space:nowrap}
+.sched .ex small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.sched .when{font-weight:700;font-size:15px}
+.sched .note{color:var(--muted);font-size:12.5px;margin-top:4px;line-height:1.5}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#E6F6EF;color:#0F7A4D;font-size:12px;font-weight:700}
 .ok{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--good)}
 .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}
 .steps{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
@@ -330,7 +338,7 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:13px}
         <div class="eyebrow">PAYBACK SCHEDULE</div>
         <h2 style="margin-top:8px">페이백 지급 시간</h2>
         <p style="color:var(--muted);margin:6px 0 0;font-size:14px">거래 후 아래 주기에 맞춰 거래소 지갑으로 자동 입금됩니다.</p>
-        <table class="sched"><tbody id="schedRows"></tbody></table>
+        <table class="sched"><thead><tr><th>거래소</th><th>지급 일정</th><th>상태</th></tr></thead><tbody id="schedRows"></tbody></table>
         <p class="warn">거래소 점검이나 정책 변경으로 지급이 늦어질 수 있습니다. 24시간 이상 지연되면 상담 채널로 UID와 함께 문의해 주세요.</p>
       </div>
 
@@ -399,11 +407,11 @@ footer{padding-block:40px 56px;color:var(--muted);font-size:13px}
 /* ===== 여기만 고치면 사이트 내용이 바뀝니다 ===== */
 // code: 본인 추천 코드 / link: 본인 레퍼럴 가입 링크 / maker·taker: 기본 수수료(%) / payback: 페이백 비율(%)
 const EXCHANGES = [
-  {id:"gate",    name:"Gate",    ko:"게이트",   color:"#2354E6", fg:"#fff", payback:50, maker:0.02, taker:0.05,  code:"cogugood",    link:"https://www.gate.com/", pick:true, schedule:"매일 오전"},
-  {id:"toobit",  name:"Toobit",  ko:"투빗",     color:"#111827", fg:"#fff", payback:60, maker:0.02, taker:0.06,  code:"cogu",    link:"https://www.toobit.com/", schedule:"거래 후 약 1시간"},
-  {id:"bitget",  name:"Bitget",  ko:"비트겟",   color:"#00C7D4", fg:"#062a2c", payback:30, maker:0.02, taker:0.06, code:"good1004",   link:"https://www.bitget.com/", schedule:"다음 날 오후"},
+  {id:"gate",    name:"Gate",    ko:"게이트",   color:"#2354E6", fg:"#fff", payback:50, maker:0.02, taker:0.05,  code:"cogugood",    link:"https://www.gate.com/", pick:true, schedule:"거래 시작 후 2시간 이내", scheduleNote:"현물/선물 계좌가 분리된 경우 현물 계좌로, 통합 모드에서는 거래 계좌로 입금됩니다."},
+  {id:"toobit",  name:"Toobit",  ko:"투빗",     color:"#111827", fg:"#fff", payback:60, maker:0.02, taker:0.06,  code:"cogu",    link:"https://www.toobit.com/", schedule:"거래 후 약 1시간 30분"},
+  {id:"bitget",  name:"Bitget",  ko:"비트겟",   color:"#00C7D4", fg:"#062a2c", payback:30, maker:0.02, taker:0.06, code:"good1004",   link:"https://www.bitget.com/", schedule:"다음 날 오후 4시 30분 이후"},
   {id:"bybit",   name:"Bybit",   ko:"바이비트", color:"#17181E", fg:"#F7A600", payback:20, maker:0.02, taker:0.055, code:"122998", link:"https://www.bybit.com/invite?ref=122998", schedule:"매주 월요일"},
-  {id:"okx",     name:"OKX",     ko:"OKX",      color:"#000000", fg:"#fff", payback:20, maker:0.02, taker:0.05,  code:"good12",    link:"https://www.okx.com/", schedule:"약 1시간 단위"},
+  {id:"okx",     name:"OKX",     ko:"OKX",      color:"#000000", fg:"#fff", payback:20, maker:0.02, taker:0.05,  code:"good12",    link:"https://www.okx.com/", schedule:"약 1시간마다"},
   {id:"binance", name:"Binance", ko:"바이낸스", color:"#F0B90B", fg:"#1E2026", payback:10, maker:0.02, taker:0.05, code:"cogu1004",   link:"https://www.binance.com/", schedule:"거래 후 약 1시간"}
 ];
 // type: "comp"(대회) 또는 "new"(신규 가입) / end 날짜가 지나면 자동으로 숨겨집니다
@@ -520,7 +528,7 @@ function renderEvents(){
 renderEvents();
 
 /* schedule */
-$("#schedRows").innerHTML = EXCHANGES.map(e=>`<tr><td><span style="display:inline-flex;align-items:center;gap:10px;font-weight:600">${mono(e)}${e.ko}</span></td><td style="font-weight:600">${e.schedule}</td><td><span class="ok">정상</span></td></tr>`).join("");
+$("#schedRows").innerHTML = EXCHANGES.map(e=>`<tr><td><span class="ex">${mono(e)}<span><b>${e.ko}</b><small>${e.name}</small></span></span></td><td><div class="when">${e.schedule}</div>${e.scheduleNote?`<div class="note">${e.scheduleNote}</div>`:""}</td><td><span class="pill">정규 일정</span></td></tr>`).join("");
 document.querySelectorAll("#schedRows .mono").forEach(m=>{m.style.width="28px";m.style.height="28px";m.style.fontSize="10px";m.style.borderRadius="8px"});
 
 /* referral change */
